@@ -1,0 +1,69 @@
+
+
+<app-formulario-insumos *ngIf="indexFormularioAdd"></app-formulario-insumos>
+<app-formulario-edit *ngIf="indexFormularioEditAdd"></app-formulario-edit>
+<div class="conteudo_main" *ngIf="indexMain">
+    <menu>
+        <button class="home btnsNav" (click)="retornarHome()">Home</button>
+        <button class="add_cliente btnsNav" (click)="abrirForms()">Adicionar insumo</button>
+      
+    </menu>
+    <div class="insumos_area">
+      <div class="loading" *ngIf="isLoading$ | async" style="color: aliceblue; text-align: center; margin: 0 auto;" >
+        <h4>Processando insumos...</h4>
+      </div>
+      <ng-container *ngFor="let i of insumoCadastrado">
+        <div class="card insumo"  (mouseenter)="ExibirEliminate($event)" (mouseleave)="removerEliminate($event)" 
+        *ngIf="i.disponibilidade; else indisponivelCard">
+          <div class="card-body" >
+            <div class="eliminate delete" (click)="apagarInsumo(i.id)"><img class="icons" src="../../../assets/icons/insumos-icons/delete.png" alt="" srcset=""></div>
+            <div class="eliminate edit" (click)="enviarInsumoEditavel(i)"><img class="icons" src="../../../assets/icons/insumos-icons/edit.png" alt="" srcset=""></div>
+            <div class="eliminate cancel" (click)="cancelarInsumo(i)"><img class="icons" src="../../../assets/icons/insumos-icons/cancel.png" alt="" srcset=""></div>
+            <h5 class="card-title">{{i.nome}}</h5>
+            <p class="card-text">{{i.descricao}}</p>
+   
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="i.disponibilidade; else indisponivel">
+              <strong>Disposição:</strong> Disponivel
+            </li>
+            <ng-template #indisponivel>
+              <li class="list-group-item">
+              <strong>Disposição:</strong> Indisponivel
+              </li>
+            </ng-template>
+            <li class="list-group-item"><strong>Marca:</strong> {{i.marca}}</li>
+            <li class="list-group-item"><strong>Peso:</strong>  {{i.peso}}</li>
+            <li class="list-group-item"><strong>Valor:</strong>  R${{i.valor}}</li>
+            
+          </ul>
+        </div>
+        <ng-template #indisponivelCard>
+                 <div class="card insumo cancelCard"  (mouseenter)="ExibirEliminate($event)" (mouseleave)="removerEliminate($event)">
+          <div class="card-body" >
+            <div class="eliminate delete" (click)="apagarInsumo(i.id)"><img class="icons" src="../../../assets/icons/insumos-icons/delete.png" alt="" srcset=""></div>
+            <div class="eliminate edit" (click)="enviarInsumoEditavel(i)"><img class="icons" src="../../../assets/icons/insumos-icons/edit.png" alt="" srcset=""></div>
+            <div class="eliminate cancel" (click)="cancelarInsumo(i)"><img class="icons" src="../../../assets/icons/insumos-icons/cancel.png" alt="" srcset=""></div>
+            <h5 class="card-title">{{i.nome}}</h5>
+            <p class="card-text">{{i.descricao}}</p>
+   
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="i.disponibilidade; else indisponivel">
+              <strong>Disposição:</strong> Disponivel
+            </li>
+            <ng-template #indisponivel>
+              <li class="list-group-item">
+              <strong>Disposição:</strong> Indisponivel
+              </li>
+            </ng-template>
+            <li class="list-group-item"><strong>Marca:</strong> {{i.marca}}</li>
+            <li class="list-group-item"><strong>Peso:</strong>  {{i.peso}}</li>
+            <li class="list-group-item"><strong>Valor:</strong>  R${{i.valor}}</li>
+            
+          </ul>
+        </div>
+        </ng-template>
+      </ng-container>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="functions">
+    <div class="ladoA">
+
+        <button (click)='nextPage("cadastro")' (mouseenter)="ValidationFunctionEnter(objFunction.cadastro,arrFuntions[1])" (mouseleave)="ValidationFunctionLeave(objFunction.cadastro, arrFuntions[1])" class="btn_f cadastro">Cadastro</button>
+
+        <button (click)='nextPage("insumos")' (mouseenter)="ValidationFunctionEnter(objFunction.insumo, arrFuntions[2])" (mouseleave)="ValidationFunctionLeave(objFunction.insumo, arrFuntions[2])"  class="btn_f insumos">Insumos</button>
+
+        <button (click)='nextPage("contabio")' (mouseenter)="ValidationFunctionEnter(objFunction.contabio, arrFuntions[3])" (mouseleave)="ValidationFunctionLeave(objFunction.contabio ,arrFuntions[3])" class="btn_f contabio">Contabio</button>
+
+    </div>
+    <div class="ladoB">
+        <div class="descrition">
+
+            <p *ngIf="objFunction.principal" class="principal">Realize o cadastro de seus clientes, insumos e controle seu fluxo de caixa.</p>
+           
+            <p *ngIf="objFunction.cadastro" class="p_cadastro text">Realize o cadastro de seus clientes, verifique seus dados e informações.</p>
+
+            <p *ngIf="objFunction.insumo" class="p_insumos text">Analíse e descrição de insumos.</p>
+            <p *ngIf="objFunction.contabio" class="p_contabio text">Organize seu fluxo de caixa, tenha controle da entrada, saida e seus lucros financeiros.</p>
+        </div>
+    </div>
+</div>

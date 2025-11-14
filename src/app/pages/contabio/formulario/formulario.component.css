@@ -1,0 +1,46 @@
+main{
+    
+    width: 100vw;
+    height: 88vh;
+}
+
+form{
+    padding: 10px;
+    border-radius: 8px;
+    width: 35%;
+    margin: 0 auto;
+    background-color: antiquewhite;
+}
+
+input{
+    outline: none;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-size: 12px;
+    padding: 2px 5px;
+}
+
+.content{
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.btns{
+    width: 60%;
+    font-size: 12px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.btns button{
+    cursor: pointer;
+    height: 20px;
+    width: 60px;
+    border-radius: 8px;
+    background-color: blue;
+    color: #fff;
+}

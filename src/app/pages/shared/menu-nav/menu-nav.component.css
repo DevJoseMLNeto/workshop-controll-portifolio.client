@@ -1,0 +1,27 @@
+.nav_bar{
+    width: 100vw;
+    height: 12vh;
+    background-color: rgba(128, 128, 128, 0.025);
+    text-align: center;
+    color: #7a7a7a;
+    
+}
+
+h1{
+    padding: 27px;
+    font-size: 1.4em;
+}
+
+@media only screen and (max-width: 720px){
+
+.nav_bar{
+    height: 6vh;
+    font-size: 0.5em;
+}
+
+h1{
+    font-size: 20px;
+}
+
+
+}

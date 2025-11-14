@@ -1,0 +1,10 @@
+main{
+    height: 80vh;
+    background-color: #a8a8a89e;
+}
+
+@media only screen and (max-width : 720px){
+    main{
+        background-color: #a8a8a800;
+    }
+}

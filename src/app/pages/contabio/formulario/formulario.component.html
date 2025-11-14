@@ -1,0 +1,20 @@
+<main>
+<form class="" (ngSubmit)="enviarForm()" [formGroup]="formSendSaida">
+<div class="content">
+    <label for="fatorI">Fator</label>
+    <input formControlName="fator" id="fatorI" type="text" >
+</div >
+<div class="content">
+    <label for="dataI">Data</label>
+    <input id="dataI" type="date" formControlName="data">
+</div>
+<div class="content">
+    <label for="valorI">Valor</label>
+    <input id="valorI" type="number" formControlName="valor">
+</div>
+ <div class="btns">
+    <button type="submit" class="ok">Adicionar</button>
+    <button (click)="fecharForm()" type="button" class="cancel">Cancelar</button>
+  </div>
+</form>
+</main>

@@ -1,0 +1,27 @@
+<main>
+    <form class="loginForm" (ngSubmit)="logar()">
+        <div class="header">
+            <h3>Login</h3>
+        </div>
+            <div class="box_input">
+            <div class="user ipt">
+                <Label for="iUser">Usuario:</Label>
+                <input type="text"  id="iUser"  [(ngModel)]="login.username" [ngModelOptions]="{standalone: true}">
+
+            </div>
+            <div class="password ipt">
+                <label for="iPassword">Senha:</label>
+                <input type="password"  id="iPassword" [(ngModel)]="login.password" [ngModelOptions]="{standalone: true}">
+                
+            </div>
+            </div>
+            <div class="btns">
+                <button type="submit" [disabled]="isLoading$ | async">Entrar</button>
+            </div>
+            <div *ngIf="(isLoading$ | async)">
+                Processando Login...
+            </div>
+
+
+        </form>
+</main>

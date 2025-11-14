@@ -1,0 +1,48 @@
+<form  (ngSubmit)="updateById()" [formGroup]="formInsumos" class="box_addclient ">
+
+       <div class="content">
+        <label for="nomeI">Nome*:</label>
+        <input formControlName="nome" type="text" name="nomeI" id="nomeI" placeholder="Insumo">
+         <div *ngIf="formInsumos.get('nome')?.invalid && formInsumos.get('nome')?.touched" class="erro">
+    Nome é obrigatorio e precisa ao menos 3 digitos.
+  </div>
+    </div>
+ 
+
+    <div class="content">
+        <label for="descricaoI">Descrição*:</label>
+        <input formControlName="descricao" type="text" name="descricaoI" id="descricaoI" placeholder="Descrição">
+         <div *ngIf="formInsumos.get('descricao')?.invalid && formInsumos.get('descricao')?.touched" class="erro">
+    Descrição é obrigatoria e precisa ter ao menos 5 digitos.
+  </div>
+    </div>
+
+    <div class="content">
+        <label for="marcaI">Marca*:</label>
+        <input formControlName="marca"  type="text" name="marcaI" id="marcaI"  placeholder="">
+         <div *ngIf="formInsumos.get('marca')?.invalid && formInsumos.get('marca')?.touched" class="erro">
+    Marca é obrigatorio e precisa ter ao menos 3 digitos.
+  </div>    
+    </div>
+    
+    <div class="content">
+        <label for="pesoI">Peso*:</label>
+        <input formControlName="peso" type="text" name="pesoI" id="pesoI"  placeholder="1000g">  
+         <div *ngIf="formInsumos.get('peso')?.invalid && formInsumos.get('peso')?.touched" class="erro">
+    Peso é obrigatorio.
+  </div>  
+    </div>
+
+    <div class="content">
+        <label for="valorI">Valor*:</label>
+        <input formControlName="valor" type="number" name="valorI" id="valorI"  placeholder="200.00"> 
+         <div *ngIf="formInsumos.get('valor')?.invalid && formInsumos.get('valor')?.touched" class="erro">
+   Valor é obrigatorio.
+  </div>   
+    </div>
+    
+    <div class="btns">
+        <button type="submit" class="ok">Adicionar</button>
+        <button  (click)="fecharForm()" type="button" class="cancel">Cancelar</button>
+    </div>
+</form>

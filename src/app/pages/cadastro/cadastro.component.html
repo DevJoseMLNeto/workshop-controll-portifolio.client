@@ -1,0 +1,68 @@
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward_ios" />
+    
+
+
+</head>
+
+<app-formularios *ngIf="indexForms"></app-formularios>
+<app-formulario-edicao *ngIf="indexEdit"></app-formulario-edicao>
+<app-menssages *ngIf="indexMenssages"></app-menssages>
+<app-formulario-novo-servico *ngIf="indexFormsService"></app-formulario-novo-servico>
+
+<main>
+<div class="principal" *ngIf="indexMain">
+    <div class="busca">
+        <input type="text" name="busca_i" id="busca_i" placeholder="Busque seu cliente" (input)="findByNome($event)" >
+    </div>
+    <div class="conteudo_main">
+    <menu>
+        <button (click)="navegarHome()" class="home">Home</button>
+        <button (click)="abrirForm()" class="add_cliente">Adicionar cliente</button>
+        <button (click)="abrirFormEdit()" class="edit_cliente" [disabled]="habBTNEdit" type="button" >Editar cliente</button>
+        <button (click)="abrirFormNovoServico()" class="edit_cliente" [disabled]="habBTNEdit" type="button" >Novo serviço</button>
+        <button (click)="removerCadastro()" class="remove_cliente" [disabled]="habBTNEdit">Remover cliente</button>
+    </menu>
+
+    <div class="clientes">
+        <div class="loading"  *ngIf="loading$ | async" style="color: aliceblue; text-align: center;">
+            <h5>Processando clientes...</h5>
+        </div>
+        <ng-container *ngFor="let c of clientesCadastrados ; let i = index">
+            <div class="ficha">
+                <input type="radio" name="cliente" (input)="habilitarEdit(i)" style="margin: 3px 3px;">
+                
+                <article class="visivel">
+                <div class="info_contact info">
+                    <p> <strong>Nome:</strong> {{c.nome}}</p>
+                    <p><strong>Contato:</strong> {{c.contato}}</p>
+                    <p><strong>Endereço:</strong> {{c.endereco}}</p>
+                </div>
+                <div class="info_bike info">
+                    <p (click)="abrirFicha('fichaAberta', $any($event.target).parentElement.parentElement.parentElement)" style="color: rgb(11, 11, 178); cursor: pointer;">Serviços</p>
+                </div>
+                </article>
+                <ng-container *ngFor="let arrayServicos of c.servico; let in = index" >
+                    <ng-template [ngIf]="arrayServicos.isVisible">
+                        <article class="escondido">
+                            <div class="descricao">
+                                <p class="data"><strong>{{arrayServicos.data}}</strong></p>
+                                <p><strong>Bike:</strong> {{arrayServicos.bike}}</p>
+                                <p><strong>Serviço:</strong> {{arrayServicos.nome}}</p>
+                                <p><strong>Valor:</strong> {{arrayServicos.valor}}</p>
+                                <p><strong>Descrição do serviço:</strong> {{arrayServicos.maisInfo}}</p>                
+                            </div>       
+                        </article>
+                    </ng-template>        
+                </ng-container>
+                <div class="btn">
+                    <button  class="anterior btns material-symbols-outlined" (click)="moverHistorico(i)">arrow_forward_ios</button>
+                </div>
+            </div>
+            </ng-container>
+    </div>
+    </div>
+</div>
+</main>
+

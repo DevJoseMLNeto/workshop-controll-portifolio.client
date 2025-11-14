@@ -1,0 +1,11 @@
+.graficoMensal{
+    width: 70%; display: flex;
+    justify-content: center; align-items: center;
+}
+
+@media only screen and (max-width: 720px)  {
+    .graficoMensal{
+    width: 100%; display: flex;
+    justify-content: center; align-items: center;
+}
+}

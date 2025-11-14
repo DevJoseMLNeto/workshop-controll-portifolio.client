@@ -1,0 +1,81 @@
+main{
+    height: 60vh;
+    width: 100vw;
+}
+
+.loginForm{
+    background-color: #a8a8a89e;
+    height: 70%;
+    width: 60%;
+    border-radius: 12px;
+    margin: 10% auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.box_input{
+    width: 100%;
+}
+
+.ipt{
+    min-width: 100px;
+    border: 8px;
+    height: 25px;
+    margin: 20px;
+    display: flex
+;
+    justify-content: center;
+    border-radius: 8px;
+    align-items: baseline;
+    position: relative;
+}
+
+input{
+    height: 65%;
+    width: 25%;
+    outline: none;
+    border: 1px solid black;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 2px;
+    min-width: 150px;
+}
+label{
+    height: auto;
+    padding: 2px;
+    font-size: 12px;
+    text-align: end;
+    width: 10%;
+    min-width: 47px;
+}
+
+
+button{
+    background-color: transparent;
+}
+
+@keyframes erroAnimatios {
+    from{
+        width: 0%;
+    }to{
+        width: 20%;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    
+
+    .loginForm{
+    background-color: #a8a8a89e;
+    height: 70%;
+    width: 60%;
+    border-radius: 12px;
+    margin: 50% auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+   
+    }
+
+}

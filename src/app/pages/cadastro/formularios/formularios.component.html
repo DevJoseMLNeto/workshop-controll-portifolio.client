@@ -1,0 +1,71 @@
+<form [formGroup]="formAddclient" (ngSubmit)="enviarDados()" class="box_addclient">
+  <h4 style="text-align: center;">Cliente</h4>
+
+  <div class="content">
+    <label for="nomeI">Nome*:</label>
+    <input formControlName="nome" type="text" name="nomeI" id="nomeI" placeholder="Ex: Fulano Ciclano">
+    <div *ngIf="formAddclient.get('nome')?.invalid && formAddclient.get('nome')?.touched" class="erro">
+    Nome do cliente é obrigatório e deve ter pelo menos 3 caracteres.
+  </div>
+  </div>
+
+  <div class="content">
+    <label for="telefoneI">Contato*:</label>
+    <input formControlName="contato" type="tel" name="telefoneI" id="telefoneI"  placeholder="Ex: 12 912345678">
+    <div *ngIf="formAddclient.get('contato')?.invalid && formAddclient.get('contato')?.touched" class="erro">
+    Contato é obrigatorio e precisa ter 11 digitos.
+  </div>
+  </div>
+
+  <div class="content">
+    <label for="whatsappI">Endereço*:</label>
+    <input formControlName="endereco" type="text" name="whatsappI" id="whatsappI">
+    <div *ngIf="formAddclient.get('endereco')?.invalid && formAddclient.get('endereco')?.touched" class="erro">
+    Edndereço do cliente é obrigatóri e deve ter ao menos 5 caracteres.
+  </div>
+  </div>
+
+  <h6 style="text-align: center;">Serviço</h6>
+
+  <div formArrayName="servico">
+    <div *ngFor="let servicoGroup of servicoForms; let i = index" [formGroupName]="i">
+      <div class="content">
+        <label for="bikeI">Bike*:</label>
+        <input formControlName="bike" type="text" name="bikeI" id="bikeI">
+        <div *ngIf="servicoGroup.get('bike')?.invalid && servicoGroup.get('bike')?.touched" class="erro">
+    Nome da bike é obrigatória e deve ter pelo menos 3 caracteres.
+  </div>
+      </div>
+      <div class="content">
+        <label for="dataI">Data*:</label>
+        <input formControlName="data" type="date" name="dataI" id="dataI">
+        <div *ngIf="servicoGroup.get('data')?.invalid && servicoGroup.get('data')?.touched" class="erro">
+    Data do serviço é obrigatório.
+  </div>
+      </div>
+      <div class="content">
+        <label for="retornoI">Serviço*:</label>
+        <input formControlName="nome" name="retornoI" id="retornoI" type="text">
+        <div *ngIf="servicoGroup.get('nome')?.invalid && servicoGroup.get('nome')?.touched" class="erro">
+    Nome do serviço é obrigatório e deve ter pelo menos 3 caracteres.
+  </div>
+      </div>
+      <div class="content">
+        <label for="valorI">Valor*:</label>
+        <input formControlName="valor" name="valorI" id="valorI" type="number">
+        <div *ngIf="servicoGroup.get('valor')?.invalid && servicoGroup.get('valor')?.touched" class="erro">
+    Valor do serviço é obrigatório.
+  </div>
+      </div>
+      <div class="content">
+        <label for="moreInfoI">Mais informações:</label>
+        <input formControlName="maisInfo" name="moreInfoI" id="moreInfoI" type="text">
+      </div>
+    </div>
+  </div>
+
+  <div class="btns">
+    <button type="submit" class="ok" [disabled]="formAddclient.invalid">Adicionar</button>
+    <button (click)="fecharForm()" type="button" class="cancel">Cancelar</button>
+  </div>
+</form>

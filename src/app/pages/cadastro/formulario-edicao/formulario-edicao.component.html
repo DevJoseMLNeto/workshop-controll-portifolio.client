@@ -1,0 +1,31 @@
+<form  (ngSubmit)="enviarDados()" class="box_addclient " [formGroup]="formAddclient">
+    <div class="content">
+    <label for="nomeI">Nome*:</label>
+    <input formControlName="nome" type="text" name="nomeI" id="nomeI" placeholder="Ex: Fulano Ciclano">
+    <div *ngIf="formAddclient.get('nome')?.invalid && formAddclient.get('nome')?.touched" class="erro">
+    Nome do cliente é obrigatório e deve ter pelo menos 3 caracteres.
+  </div>
+  </div>
+
+  <div class="content">
+    <label for="telefoneI">Contato*:</label>
+    <input formControlName="contato" type="tel" name="telefoneI" id="telefoneI"  placeholder="Ex: 12 912345678">
+    <div *ngIf="formAddclient.get('contato')?.invalid && formAddclient.get('contato')?.touched" class="erro">
+    Contato é obrigatorio e precisa ter 11 digitos.
+  </div>
+  </div>
+
+  <div class="content">
+    <label for="whatsappI">Endereço*:</label>
+    <input formControlName="endereco" type="text" name="whatsappI" id="whatsappI">
+    <div *ngIf="formAddclient.get('endereco')?.invalid && formAddclient.get('endereco')?.touched" class="erro">
+    Endereço do cliente é obrigatóri e deve ter ao menos 5 caracteres.
+  </div>
+  </div>
+    
+  
+    <div class="btns">
+        <button type="submit" class="ok">Adicionar</button>
+        <button  (click)="fecharForm()" type="button" class="cancel">Cancelar</button>
+    </div>
+</form>

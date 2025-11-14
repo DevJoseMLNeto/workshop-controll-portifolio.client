@@ -1,0 +1,39 @@
+<form  (ngSubmit)="enviarDados()" class="box_addclient " [formGroup]="servico">
+    
+   <div class="content">
+        <label for="bikeI">Bike*:</label>
+        <input formControlName="bike" type="text" name="bikeI" id="bikeI">
+        <div *ngIf="servico.get('bike')?.invalid && servico.get('bike')?.touched" class="erro">
+    Nome da bike é obrigatória e deve ter pelo menos 3 caracteres.
+  </div>
+      </div>
+      <div class="content">
+        <label for="dataI">Data*:</label>
+        <input formControlName="data" type="date" name="dataI" id="dataI">
+        <div *ngIf="servico.get('data')?.invalid && servico.get('data')?.touched" class="erro">
+    Data do serviço é obrigatório.
+  </div>
+      </div>
+      <div class="content">
+        <label for="retornoI">Serviço*:</label>
+        <input formControlName="nome" name="retornoI" id="retornoI" type="text">
+        <div *ngIf="servico.get('nome')?.invalid && servico.get('nome')?.touched" class="erro">
+    Nome do serviço é obrigatório e deve ter pelo menos 3 caracteres.
+  </div>
+      </div>
+      <div class="content">
+        <label for="valorI">Valor*:</label>
+        <input formControlName="valor" name="valorI" id="valorI" type="number">
+        <div *ngIf="servico.get('valor')?.invalid && servico.get('valor')?.touched" class="erro">
+    Valor do serviço é obrigatório.
+  </div>
+      </div>
+      <div class="content">
+        <label for="moreInfoI">Mais informações:</label>
+        <input formControlName="maisInfo" name="moreInfoI" id="moreInfoI" type="text">
+      </div>
+    <div class="btns">
+        <button type="submit" class="ok" [disabled]="servico.invalid">Adicionar</button>
+        <button  (click)="fecharForm()" type="button" class="cancel">Cancelar</button>
+    </div>
+</form>

@@ -1,0 +1,60 @@
+
+<main>
+<button class="home" (click)="navegar('home')">HOME</button>
+<div class="hist_ent">
+    <h5>Historico de entradas</h5>
+   
+    <div class="view_ent">
+        <div class="loading"  *ngIf="loading$ | async" style="text-align: center;">
+            <h5>Processando ...</h5>
+        </div>
+        <ng-container *ngFor="let e of entrada">
+        <div class="att">
+            <p>Serviço: {{e.fator}}<br> Data: {{e.data}} <br> Valor:  {{e.valor}}</p>
+        </div>
+        </ng-container>
+    </div>
+
+</div>
+<div class="calc_geral">
+    <div class="center calc_graf">
+        <div style="width: 50%; padding: 10px;">
+            <div class="caixa_atual">Caixa atual: {{caixaAtual.data}}</div>
+        <div class="valores entrada">Entrada: R${{caixaAtual.entrada}}</div>
+        <div class="valores saida">Saida: R${{caixaAtual.saida}}</div>
+        <div class="valores total">Total: R${{caixaAtual.total}}</div>
+
+        </div>
+        <div class="loading"  *ngIf="loading$ | async" style="text-align: center;">
+            <h5>Processando ...</h5>
+        </div>
+        <app-graficos class="grafico"></app-graficos>
+    </div>
+    <div class="center definir_saida" >
+        <div class="loading"  *ngIf="loading$ | async" style="text-align: center;">
+            <h5>Processando ...</h5>
+        </div>
+        <app-grafico-mensal class="grafico-mensal"></app-grafico-mensal>
+    </div>
+</div>
+<div class="hist_saida">
+    <h5 >Historico de Saida</h5>
+    
+    <div class="view_ent">
+        <div class="att">
+            <div class="loading"  *ngIf="loading$ | async" style="text-align: center;">
+            <h5>Processando ...</h5>
+        </div>
+           <ng-container *ngFor="let s of saida">
+        <div class="att" [id]="s.id">
+            <button style="height: 15px; border-radius: 8px;" (click)="removerSaida($any($event.target).parentElement.parentElement.id)"><img src="../../../assets/icons/insumos-icons/delete.png" style="height: 15px;"></button>
+            <p>Serviço: {{s.fator}} <br> Data: {{s.data}} <br> Valor:  {{s.valor}}</p> 
+        </div>
+        </ng-container>
+        </div>
+        
+    </div>
+    <button class="btn_saida" (click)="navegar('saida')">Registrar saida</button>
+</div>
+
+</main>

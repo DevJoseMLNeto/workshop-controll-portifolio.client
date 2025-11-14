@@ -1,0 +1,236 @@
+
+
+.principal{
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.conteudo_main{
+    display: flex;
+    margin: 10px 0;
+    height: 75vh;
+}
+
+main{
+    display: flex;
+    margin: 0px auto;
+}
+
+.clientes{
+    width: 83vw;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+menu{
+    height: 100%;
+    width: 17vw;
+}
+
+menu button{
+    cursor: pointer;
+    width: 90%;
+    height: 80px;
+    background-color: lightgray;
+    font-size: 12px;
+    font-weight: 600;
+    transition-duration: 100ms;
+    margin: 7px;
+    border-radius: 8px;
+}
+
+menu button:hover{
+    background-color:  rgb(255, 255, 34);
+    border-right: none;
+}
+
+.busca{
+    background-color: #fff;
+    border-radius: 8px;
+    width: 40%;
+    margin: 0px auto;
+    display: grid;
+}
+
+.busca input{
+    outline: none;
+    width:80% ;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: transparent;
+    font-size: 12px;
+}
+
+
+.busca span{
+    cursor: pointer;
+    padding: 5px 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.ficha{
+    width: 90%;
+    max-width: 900px;
+    height: 120px; 
+    background-color: #fff;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.data{
+    text-align: center; 
+}
+
+.fichaAberta{
+    height: auto;
+    
+    overflow: visible;
+    overflow-x: hidden;
+}
+.visivel{
+    display: flex;
+}
+
+.escondido{
+    padding: 0px 10px;
+    padding-top: 25px;
+}
+
+.descricao{
+    height: auto;
+    width: 100%; 
+    border: 2px solid  rgb(67, 67, 67);
+    border-radius: 8px;
+    font-size: larger;
+    font-family: sans-serif;
+    animation-name: servicoanim;
+    animation-duration: 0.5s;
+    margin-left: 0px;
+}
+
+@keyframes servicoanim{
+    0%{
+        opacity: 0;
+        margin-left: 100%;
+    }100%{
+        opacity: 1;
+        margin-left: 0px;
+    }
+}
+
+.descricao > p {
+    margin: 10px 5px;
+}
+
+
+.info{
+    width: 50%;
+    font-size: larger;
+    font-family: sans-serif;
+    padding: 0px 10px;
+}
+
+.info_contact > p {
+    margin: 5px 0px;
+}
+
+.info_bike > p {
+    margin: 10px 5px;
+}
+
+p{
+    font-size:12px;
+}
+.btn{
+    height: 45px;
+    display: block;
+    width: auto;
+}
+.btns{
+    font-size: 15px;
+    background-color: transparent;
+}
+@media only screen and (max-width: 720px){
+
+
+
+    .busca{
+        padding: 0px;
+        margin: 12px auto;
+        height: 20px;
+        display: grid;
+    }
+    .data{
+        text-align: center; 
+    }
+
+    .busca input{
+        height: 20px;
+        font-size:12px;
+    }
+    menu{
+        height: auto;
+        display: flex;
+        width: auto;
+        margin: 20px;
+    }
+
+    menu > button {
+        font-size: 8px;
+        height: 100%;
+    }
+
+    .principal{
+        flex-direction: column;
+    }
+
+    .conteudo_main{
+        flex-direction: column;
+    }
+
+    .clientes{
+        width:100vw;
+    }
+
+    .info_contact > p{
+        margin: 2px;
+        font-size: 9px;
+    }
+
+    .info_bike > p{
+        margin: 0px;
+        font-size: 9px;
+
+    }
+    .ficha{
+        height:130px;
+    }
+    article{
+        min-height: 100px;
+        border: 0px;
+    }
+    .descricao p{
+        font-size: 9px;
+    }
+    .fichaAberta{
+        height: auto !important;
+    }
+
+    .btns{
+        font-size: 17px;
+    }
+    .descricao {
+        border: 1px solid rgb(67, 67, 67);
+    }
+  
+}
