@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { Behavior } from 'popper.js';
@@ -11,7 +11,7 @@ import { LoginService } from 'src/app/auth/login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
 
 router = inject(Router)
@@ -22,8 +22,12 @@ constructor(private loginService: LoginService){
 this.isLoading$ = this.loginService.isLoading
 }
 
-logar(){
+ngOnInit(): void {
+  alert("O usuario e a senha são: admin")
+}
 
+logar(){
+  
     this.loginService.logar(this.login).subscribe({
       next: token => {
         if(token){
